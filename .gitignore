@@ -1,0 +1,12 @@
+# Temporary directories & logs
+.tempmediaStorage/
+tmp_edge/
+scratch/
+*.log
+*.pma
+
+# IDE and OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

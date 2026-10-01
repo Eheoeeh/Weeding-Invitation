@@ -1,0 +1,2305 @@
+/* ==========================================================================
+   LUXURY BOTANICAL WEDDING INVITATION - STYLESHEET
+   Primary Theme: Fine Art Watercolor Deckled-Edge Lilac & Hydrangea Stationery
+   Aesthetics: Deckled Linen Paper, Soft Lavender Backdrop, Gold Wax Seal,
+   Romantic Classical Typography
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@400;500;600&display=swap');
+
+:root {
+  /* Color Palette */
+  --bg-lavender-deep: #baa5b7;
+  --bg-lavender-soft: #c8b7c6;
+  --bg-lavender-light: #dfd4de;
+  --paper-cream: #fbf9f6;
+  --text-charcoal: #181718;
+  --text-muted: #5e595e;
+  --gold-accent: #d4af37;
+  --gold-shimmer: linear-gradient(135deg, #f9f0c9 0%, #d4af37 50%, #aa820a 100%);
+  --gold-wax: #c98838;
+  --gold-wax-deep: #91551a;
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 12px 36px rgba(60, 35, 65, 0.16);
+  --card-shadow: 0 24px 60px -10px rgba(50, 30, 55, 0.38), 0 10px 24px -6px rgba(0, 0, 0, 0.14);
+  
+  /* Primary Deckled Card Dimensions & Ratio (848 x 1264) */
+  --card-ratio: 848 / 1264;
+  --card-max-width: 460px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  background-color: #faf5fa;
+  background-image: 
+    radial-gradient(ellipse at 50% 45%, rgba(255, 255, 255, 0.45) 0%, rgba(248, 240, 248, 0.25) 50%, rgba(230, 215, 230, 0.05) 85%, transparent 100%),
+    url('vintage_watercolor_bg.jpg?v=yellow_blossoms_v52');
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  color: var(--text-charcoal);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Atmospheric Flying Lilac Blossom Petals Canvas */
+#petals-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Authentic Antique Deckled Paper Grain Texture */
+.texture-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(ellipse at center, rgba(255, 255, 255, 0.3) 0%, rgba(240, 230, 238, 0) 70%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.045'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Main Container */
+.app-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 55px 16px 45px;
+  z-index: 5;
+  perspective: 1400px;
+}
+
+/* Top Floating Bar / Controls */
+.top-nav {
+  position: fixed;
+  top: 18px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.top-nav > * {
+  pointer-events: auto;
+}
+
+.guest-greeting-pill {
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-border);
+  padding: 7px 18px;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  font-style: italic;
+  color: #3b2c3a;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.pill-prefix-mobile {
+  display: none;
+}
+
+.top-action-group {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #4a3548;
+  font-size: 1.15rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.icon-btn:hover {
+  transform: translateY(-2px) scale(1.06);
+  background: #ffffff;
+  color: var(--gold-accent);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.icon-btn.playing {
+  animation: pulse-glow 2s infinite;
+  color: #d4af37;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(212, 175, 55, 0); }
+}
+
+/* ==========================================================================
+   ENTRANCE EXPERIENCE 1: SATIN SILK RIBBON & WAX SEAL
+   ENTRANCE EXPERIENCE 2: BLOSSOM TO BLOOM
+   ========================================================================== */
+
+/* Switcher in Top Navigation */
+.reveal-switcher-pill {
+  display: flex;
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 3px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.switcher-btn {
+  background: transparent;
+  border: none;
+  padding: 6px 13px;
+  border-radius: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #554252;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.switcher-btn.active {
+  background: linear-gradient(135deg, #dfc3d6 0%, #caa4be 100%);
+  color: #271424;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(180, 140, 170, 0.35);
+}
+
+.presentation-stage {
+  position: relative;
+  width: 100%;
+  max-width: min(var(--card-max-width), calc((100dvh - 140px) * (848 / 1264)));
+  margin: 15px auto 10px;
+  display: grid;
+  place-items: center;
+  perspective: 1400px;
+}
+
+.presentation-stage > .card-perspective-container {
+  grid-area: 1 / 1;
+  width: 100%;
+}
+
+/* ==========================================================================
+   EXPERIENCE 1: SATIN SILK RIBBON & GOLD SEAL OVERLAY
+   ========================================================================== */
+
+.ribbon-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 25;
+  transition: opacity 0.5s ease;
+}
+
+.ribbon-overlay.hidden {
+  display: none !important;
+}
+
+.ribbon-overlay.untying {
+  pointer-events: none;
+}
+
+/* Horizontal Ribbon Bands across Card */
+.ribbon-band {
+  position: absolute;
+  top: 40.5%;
+  height: 48px;
+  background: linear-gradient(180deg, #dfc5d6 0%, #f7eaf3 28%, #d2b0c7 52%, #f5e8f1 78%, #b692ab 100%);
+  box-shadow: 0 8px 22px rgba(60, 35, 55, 0.28), 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.7);
+  border-bottom: 1px solid rgba(140, 105, 130, 0.4);
+  transition: transform 0.9s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.7s ease;
+}
+
+.ribbon-band-left {
+  left: 0;
+  width: 50%;
+  transform-origin: left center;
+}
+
+.ribbon-band-right {
+  right: 0;
+  width: 50%;
+  transform-origin: right center;
+}
+
+/* Dangling Silk Ribbon Tails */
+.ribbon-tails-container {
+  position: absolute;
+  top: 40.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 110px;
+  pointer-events: none;
+  transition: transform 0.7s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.5s ease;
+}
+
+.ribbon-tail {
+  position: absolute;
+  top: 24px;
+  width: 34px;
+  height: 85px;
+  background: linear-gradient(180deg, #e4cadb 0%, #d0aec5 50%, #b893ad 100%);
+  box-shadow: 0 6px 16px rgba(60, 35, 55, 0.25);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 82%, 0 100%);
+}
+
+.tail-left {
+  left: 12px;
+  transform: rotate(-16deg);
+  transform-origin: top left;
+}
+
+.tail-right {
+  right: 12px;
+  transform: rotate(18deg);
+  transform-origin: top right;
+}
+
+/* Center Embossed 3D Gold Wax Seal */
+.ribbon-wax-seal {
+  position: absolute;
+  top: 40.5%;
+  left: 50%;
+  transform: translate(-50%, -10px);
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle at 35% 30%, #ffd978 0%, #d8983e 40%, #875114 85%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 28px rgba(70, 35, 10, 0.45), inset 0 2px 4px rgba(255, 255, 255, 0.7), inset 0 -3px 6px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease;
+  z-index: 30;
+}
+
+.ribbon-wax-seal:hover {
+  transform: translate(-50%, -10px) scale(1.12);
+  box-shadow: 0 14px 34px rgba(70, 35, 10, 0.55), inset 0 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+.ribbon-prompt {
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  color: #3f2d3d;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 6px 16px;
+  border-radius: 20px;
+  width: fit-content;
+  margin: auto;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  animation: bounce-subtle 2s infinite ease-in-out;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* Ribbon Untying Animation */
+.ribbon-overlay.untying .ribbon-band-left {
+  transform: translateX(-125%) rotate(-8deg);
+  opacity: 0;
+}
+
+.ribbon-overlay.untying .ribbon-band-right {
+  transform: translateX(125%) rotate(8deg);
+  opacity: 0;
+}
+
+.ribbon-overlay.untying .ribbon-tails-container {
+  transform: translateX(-50%) translateY(60px) scale(0.6);
+  opacity: 0;
+}
+
+.ribbon-overlay.untying .ribbon-wax-seal {
+  transform: translate(-50%, -10px) scale(1.4);
+  opacity: 0;
+}
+
+.ribbon-overlay.untying .ribbon-prompt {
+  opacity: 0;
+}
+
+/* ==========================================================================
+   1. THE BLOSSOM POPPING SECTION (Pure Botanical Floating Blossom - No Card)
+   ========================================================================== */
+
+.blossom-stage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 28;
+  will-change: transform, opacity, filter;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.blossom-stage.hidden {
+  display: none !important;
+}
+
+.blossom-stage.blooming {
+  pointer-events: none;
+}
+
+.blossom-core {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px 20px;
+}
+
+.blossom-bouquet-wrapper {
+  position: relative;
+  width: 230px;
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.blossom-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 34px rgba(85, 45, 80, 0.24));
+  animation: gentle-breath 4s infinite ease-in-out;
+}
+
+@keyframes gentle-breath {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.05) rotate(2deg); }
+}
+
+.blossom-glow-ring {
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(212, 175, 55, 0.65);
+  animation: rotate-ring 24s infinite linear;
+  transition: all 0.35s ease;
+}
+
+.blossom-core:hover .blossom-bouquet-wrapper,
+.blossom-bouquet-wrapper:hover {
+  transform: scale(1.06);
+}
+
+.blossom-core:hover .blossom-glow-ring,
+.blossom-bouquet-wrapper:hover .blossom-glow-ring {
+  border-color: rgba(212, 175, 55, 0.95);
+  box-shadow: 0 0 32px rgba(212, 175, 55, 0.45);
+}
+
+.blossom-stage:hover .blossom-prompt {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.14);
+}
+
+.blossom-stage:active .blossom-bouquet-wrapper {
+  transform: scale(0.96);
+}
+
+@keyframes rotate-ring {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.blossom-caption {
+  margin-top: 14px;
+  transition: transform 0.6s ease, opacity 0.5s ease;
+}
+
+.blossom-subtitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  color: #634b5f;
+}
+
+.blossom-couple {
+  font-family: 'Great Vibes', 'Alex Brush', cursive;
+  font-size: 2.2rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: none;
+  color: #2c1a29;
+  margin-top: 3px;
+  line-height: 1.15;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.95);
+}
+
+.blossom-prompt {
+  margin-top: 16px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  color: #493345;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 6px 18px;
+  border-radius: 20px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  animation: bounce-subtle 2s infinite ease-in-out;
+  transition: opacity 0.4s ease;
+}
+
+/* Blossom to Bloom Exploding Outward Animation */
+.blossom-overlay.blooming {
+  pointer-events: none;
+}
+
+.blossom-overlay.blooming .blossom-veil {
+  opacity: 0;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+}
+
+.blossom-overlay.blooming .blossom-bouquet-wrapper {
+  transform: scale(2.8) rotate(45deg);
+  opacity: 0;
+  filter: blur(6px);
+}
+
+.blossom-overlay.blooming .blossom-caption,
+.blossom-overlay.blooming .blossom-prompt {
+  transform: translateY(25px);
+  opacity: 0;
+}
+
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* ==========================================================================
+   THE MAIN WEDDING CARD (Watercolor Deckled Luxury Theme)
+   ========================================================================== */
+
+.card-perspective-container {
+  width: 100%;
+  max-width: min(var(--card-max-width), calc((100dvh - 140px) * (848 / 1264)));
+  perspective: 1200px;
+  container-type: inline-size;
+  will-change: transform, opacity, filter;
+}
+
+/* Kept rendered in DOM layout geometry so GPU texture (theme_watercolor_deckled.jpg) is pre-cached with zero decode lag */
+.card-perspective-container.card-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(0.84);
+  filter: blur(10px);
+}
+
+.card-perspective-container.card-revealed {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: scale(1);
+  filter: blur(0px);
+}
+
+.wedding-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--card-ratio);
+  background-color: var(--paper-cream);
+  background-image: url('theme_watercolor_deckled.jpg?v=small_flowers_v52') !important;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  box-shadow: 0 22px 55px -10px rgba(60, 35, 65, 0.32), 0 8px 22px -4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  user-select: none;
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease-out, box-shadow 0.3s ease;
+}
+
+/* Realistic Paper Sheen on 3D Tilt */
+.card-sheen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0) 60%);
+  pointer-events: none;
+  opacity: 0.35;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+/* Dynamic Typography Overlay - Clean Responsive Flex Flow */
+.card-content {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10.5% 7.5% 8%;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 1;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Personal Guest Tag on Card Top (if specified) */
+.card-guest-banner {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(10px, 2.3cqw, 12.5px);
+  font-style: italic;
+  color: #554452;
+  letter-spacing: 0.08em;
+  opacity: 0.95;
+  margin-bottom: clamp(1px, 0.4cqw, 3px);
+  transition: all 0.3s ease;
+}
+
+/* Bismillah & Host Line */
+.card-bismillah-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  margin-bottom: clamp(2px, 0.6cqw, 5px);
+}
+
+.bismillah-arabic {
+  font-family: 'Scheherazade New', 'Amiri', 'Traditional Arabic', serif;
+  font-size: clamp(13px, 3.2cqw, 17px);
+  color: #9c7324;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.card-host-line {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(10px, 2.2cqw, 12.5px);
+  font-style: italic;
+  font-weight: 600;
+  color: #5a4356;
+  letter-spacing: 0.04em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+/* Invitation Intro Lines */
+.invitation-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5px;
+  margin-bottom: clamp(2px, 0.5cqw, 4px);
+}
+
+.intro-line-1 {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: clamp(8.8px, 1.95cqw, 10.8px);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: #7b4d16;
+  text-transform: uppercase;
+}
+
+.intro-line-2 {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: clamp(8.2px, 1.8cqw, 10px);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: #493345;
+  text-transform: uppercase;
+}
+
+/* Hero Groom Name in Royal Script */
+.groom-name-block {
+  margin: clamp(1px, 0.4cqw, 4px) 0 clamp(2px, 0.8cqw, 5px);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.groom-script-name {
+  font-family: 'Great Vibes', 'Alex Brush', cursive;
+  font-size: clamp(28px, 6.6cqw, 42px);
+  line-height: 1.1;
+  color: #271325;
+  letter-spacing: 0.02em;
+  background: linear-gradient(135deg, #271325 0%, #68305f 60%, #9c7324 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.95));
+}
+
+/* Best Lines / Heartfelt Card Invitation Letter Quote */
+.card-letter-quote {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(9.5px, 2.1cqw, 11.8px);
+  line-height: 1.3;
+  color: #493548;
+  max-width: 88%;
+  margin-bottom: clamp(4px, 1.1cqw, 8px);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+  position: relative;
+  padding: 0 10px;
+}
+
+.card-letter-quote::before,
+.card-letter-quote::after {
+  content: '❦';
+  font-size: 0.65rem;
+  color: rgba(184, 134, 11, 0.6);
+  margin: 0 4px;
+  vertical-align: middle;
+}
+
+/* 3 Auspicious Ceremonies Programme Block */
+.ceremonies-program-block {
+  width: 100%;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3px, 0.8cqw, 6px);
+  background: rgba(255, 255, 255, 0.48);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 8px;
+  padding: clamp(5px, 1.1cqw, 8px) clamp(8px, 1.8cqw, 12px);
+  margin-bottom: clamp(5px, 1.2cqw, 8px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.program-event-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(6px, 1.4cqw, 9px);
+  text-align: left;
+}
+
+.prog-dot {
+  font-size: clamp(8px, 1.6cqw, 10px);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.prog-dot.mehndi-dot { color: #d4a017; }
+.prog-dot.barat-dot { color: #b71c1c; }
+.prog-dot.walima-dot { color: #8e24aa; }
+
+.prog-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.prog-date {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: clamp(8.4px, 1.85cqw, 10.4px);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #271424;
+  line-height: 1.2;
+}
+
+.prog-event {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(9.2px, 2cqw, 11.5px);
+  font-weight: 600;
+  color: #7b4d16;
+  line-height: 1.2;
+}
+
+/* Venue & Hospitality Footer */
+.card-venue-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5px;
+  width: 100%;
+  max-width: 90%;
+}
+
+.venue-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 5px;
+  line-height: 1.2;
+}
+
+.venue-label {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(8.2px, 1.7cqw, 10px);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #7b4d16;
+}
+
+.venue-main-name {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: clamp(9.2px, 2.05cqw, 11.5px);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #271424;
+}
+
+.venue-sub-addr {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(9.2px, 1.95cqw, 11.2px);
+  color: #4f3b4d;
+  line-height: 1.25;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.banquet-dinner-note {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: clamp(8.5px, 1.85cqw, 10.5px);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8c5b1b;
+  margin-top: clamp(2px, 0.5cqw, 4px);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* ==========================================================================
+   INTERACTIVE ACTION DOCK & FLOATING BAR
+   ========================================================================== */
+
+.bottom-action-dock {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(30px);
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 8px 14px;
+  border-radius: 40px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  z-index: 90;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  max-width: 95vw;
+  overflow-x: auto;
+}
+
+.bottom-action-dock.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.bottom-action-dock::-webkit-scrollbar {
+  display: none;
+}
+
+.dock-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #3b2c3a;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+.dock-btn svg, .dock-btn span.icon {
+  font-size: 1.05rem;
+}
+
+.dock-btn:hover {
+  background: rgba(255, 255, 255, 0.85);
+  color: #000;
+  transform: translateY(-2px);
+}
+
+.dock-btn.highlight {
+  background: linear-gradient(135deg, #a73c58 0%, #87263d 50%, #5e1124 100%);
+  color: #fff9e6;
+  font-weight: 600;
+  border: 1px solid #d4af37;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 4px 12px rgba(120, 25, 45, 0.35);
+}
+
+.dock-btn.highlight:hover {
+  background: linear-gradient(135deg, #b94463 0%, #992d47 50%, #6f162c 100%);
+  border-color: #f6e298;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 6px 16px rgba(120, 25, 45, 0.45);
+}
+
+/* ==========================================================================
+   MODALS & OVERLAYS (Vintage Parchment Folios)
+   ========================================================================== */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(35, 18, 30, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-window {
+  background: radial-gradient(ellipse at 50% 0%, #fffdfa 0%, #faf3e5 50%, #f4e8d3 100%);
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  border-radius: 8px;
+  box-shadow: 
+    inset 0 0 35px rgba(180, 140, 90, 0.12),
+    inset 0 0 0 4px #fbf7ee,
+    inset 0 0 0 5px rgba(195, 155, 95, 0.4),
+    0 24px 60px rgba(40, 15, 40, 0.28);
+  overflow-y: auto;
+  border: 1px solid rgba(195, 155, 95, 0.75);
+  transform: translateY(20px) scale(0.96);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  padding: 32px 26px;
+}
+
+.modal-backdrop.active .modal-window {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: #f4ecf2;
+  color: #6a5265;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: #e6d3e2;
+  color: #2a1525;
+}
+
+.modal-header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.modal-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #2b1f29;
+  margin-bottom: 6px;
+}
+
+.modal-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #6a5a67;
+}
+
+/* Form Styles inside Modals */
+.form-group {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.form-label {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #554452;
+  margin-bottom: 6px;
+}
+
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 8px;
+  border: 1px solid #d8cad6;
+  background: #faf7f9;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  color: #281d26;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: #aa85a2;
+  box-shadow: 0 0 0 3px rgba(170, 133, 162, 0.18);
+  background: #fff;
+}
+
+.radio-pill-group {
+  display: flex;
+  gap: 10px;
+}
+
+.radio-pill-group label {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #d8cad6;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: #554452;
+  transition: all 0.2s;
+}
+
+.radio-pill-group input[type="radio"] {
+  display: none;
+}
+
+.radio-pill-group input[type="radio"]:checked + label {
+  background: #e5d1e0;
+  border-color: #9c7594;
+  color: #2c1627;
+  font-weight: 600;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 6px;
+  border: 1px solid #d4af37;
+  background: linear-gradient(135deg, #a73c58 0%, #87263d 50%, #5e1124 100%);
+  color: #fff9e6;
+  font-family: 'Cinzel', serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 4px 14px rgba(120, 25, 45, 0.35);
+  transition: all 0.25s ease;
+  margin-top: 8px;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #b94463 0%, #992d47 50%, #6f162c 100%);
+  border-color: #f6e298;
+  transform: translateY(-1px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 6px 18px rgba(120, 25, 45, 0.45);
+  color: #ffffff;
+}
+
+.btn-secondary {
+  width: 100%;
+  padding: 11px 18px;
+  border-radius: 6px;
+  border: 1.5px solid rgba(195, 155, 95, 0.65);
+  background: linear-gradient(135deg, #fdf9f0 0%, #f4e8d3 100%);
+  color: #4b301c;
+  font-family: 'Cinzel', serif;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: inset 0 1px 0 #ffffff, 0 3px 8px rgba(160, 110, 50, 0.12);
+}
+
+.btn-secondary:hover {
+  background: #ffffff;
+  border-color: #d4af37;
+  color: #8e6224;
+  transform: translateY(-1px);
+  box-shadow: inset 0 1px 0 #ffffff, 0 5px 14px rgba(160, 110, 50, 0.22);
+}
+
+/* ==========================================================================
+   COUNTDOWN BADGE
+   ========================================================================== */
+
+.countdown-strip {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin: 16px 0;
+  background: #fcf8fa;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #ebdbe6;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 50px;
+}
+
+.countdown-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: #53364d;
+}
+
+.countdown-lbl {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #8c7688;
+}
+
+/* ==========================================================================
+   VENUE & MAP CARD IN MODAL
+   ========================================================================== */
+
+.venue-card-preview {
+  background: #faf6f9;
+  border: 1px solid #e8dae5;
+  border-radius: 12px;
+  padding: 18px;
+  margin: 16px 0;
+  text-align: left;
+}
+
+.venue-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #382434;
+  margin-bottom: 4px;
+}
+
+.venue-addr {
+  font-size: 0.95rem;
+  color: #6c5a69;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.venue-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.venue-actions a, .venue-actions button {
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  padding: 9px 12px;
+  border-radius: 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: #ebdce8;
+  color: #4a2d45;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.venue-actions a:hover, .venue-actions button:hover {
+  background: #dfcbdb;
+}
+
+/* ==========================================================================
+   CONFETTI CELEBRATION
+   ========================================================================== */
+
+.confetti-particle {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* ==========================================================================
+   BOTANICAL LEAF POP PARTICLES (Blue & Purple Floating Leaves)
+   ========================================================================== */
+
+.botanical-leaf-particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 998;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 2px 4px rgba(120, 105, 130, 0.12));
+  opacity: 0;
+  backface-visibility: visible;
+  transform-origin: center center;
+}
+
+.botanical-leaf-particle svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* ==========================================================================
+   RESPONSIVENESS & MOBILE POLISH
+   ========================================================================== */
+
+@media (max-width: 680px) {
+  .app-container {
+    padding: 78px 8px 75px;
+    min-height: 100dvh;
+    justify-content: center;
+  }
+  
+  .top-nav {
+    top: 8px;
+    padding: 0 8px;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .app-container {
+    padding-top: 85px;
+    padding-bottom: 38px;
+    justify-content: flex-start;
+  }
+  
+  .guest-greeting-pill {
+    padding: 4px 12px;
+    font-size: 0.78rem;
+    max-width: 94vw;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .pill-prefix {
+    display: none;
+  }
+  
+  .pill-prefix-mobile {
+    display: inline;
+  }
+  
+  .top-action-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: nowrap;
+    max-width: 100%;
+  }
+
+  .reveal-switcher-pill {
+    padding: 2px 4px;
+    gap: 2px;
+  }
+
+  .mode-switch-btn {
+    padding: 4px 8px;
+    font-size: 0.7rem;
+    border-radius: 14px;
+  }
+
+  .icon-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.88rem;
+  }
+
+  .blossom-stage {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .blossom-core {
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .blossom-bouquet-wrapper {
+    width: clamp(130px, 36vw, 175px);
+    height: clamp(130px, 36vw, 175px);
+  }
+
+  .blossom-caption {
+    margin-top: 10px;
+  }
+
+  .blossom-subtitle {
+    font-size: 1rem;
+  }
+
+  .blossom-couple {
+    font-size: 1.85rem;
+    letter-spacing: 0.02em;
+    margin-top: 2px;
+  }
+
+  .blossom-prompt {
+    margin-top: 12px;
+    font-size: 0.88rem;
+    padding: 5px 14px;
+  }
+
+  .bottom-action-dock {
+    bottom: 10px;
+    padding: 5px 8px;
+    gap: 4px;
+    max-width: 96vw;
+  }
+
+  .dock-btn {
+    padding: 6px 9px;
+    font-size: 0.72rem;
+    gap: 4px;
+  }
+
+  .modal-window {
+    padding: 22px 16px;
+    border-radius: 14px;
+    max-height: 88dvh;
+  }
+}
+
+@media (max-width: 360px) {
+  .top-nav {
+    top: 6px;
+    gap: 4px;
+  }
+
+  .guest-greeting-pill {
+    font-size: 0.72rem;
+    padding: 3px 9px;
+  }
+
+  .mode-switch-btn {
+    padding: 3px 6px;
+    font-size: 0.65rem;
+  }
+
+  .icon-btn {
+    width: 29px;
+    height: 29px;
+    font-size: 0.8rem;
+  }
+
+  .blossom-bouquet-wrapper {
+    width: 130px;
+    height: 130px;
+  }
+
+  .blossom-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .blossom-couple {
+    font-size: 1.65rem;
+    letter-spacing: 0.02em;
+  }
+
+  .blossom-prompt {
+    font-size: 0.82rem;
+    padding: 4px 10px;
+  }
+
+  .dock-btn {
+    padding: 5px 7px;
+    font-size: 0.66rem;
+  }
+}
+
+@media (max-height: 620px) {
+  .app-container {
+    padding-top: 70px;
+    padding-bottom: 58px;
+  }
+
+  .blossom-bouquet-wrapper {
+    width: clamp(100px, 24vh, 140px);
+    height: clamp(100px, 24vh, 140px);
+  }
+
+  .blossom-caption {
+    margin-top: 6px;
+  }
+
+  .blossom-prompt {
+    margin-top: 8px;
+    padding: 3px 12px;
+    font-size: 0.82rem;
+  }
+
+  .bottom-action-dock {
+    bottom: 6px;
+  }
+}
+
+/* ==========================================================================
+   EXTENDED WEDDING INVITATION SECTIONS & CHAPTERS
+   ========================================================================== */
+
+/* ==========================================================================
+   ROYAL ORNATE CELEBRATION EVENTS SCROLL BADGE
+   ========================================================================== */
+.scroll-down-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 22px auto 14px;
+  width: 90%;
+  max-width: min(340px, 88vw);
+  background: rgba(254, 252, 248, 0.95);
+  background-image: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.98) 0%, rgba(252, 248, 242, 0.92) 100%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(212, 175, 55, 0.65);
+  border-radius: 18px;
+  box-shadow: 
+    0 12px 32px -4px rgba(60, 25, 65, 0.16),
+    0 4px 12px rgba(0, 0, 0, 0.05),
+    inset 0 0 16px rgba(240, 225, 205, 0.45);
+  padding: 5px;
+  cursor: pointer;
+  user-select: none;
+  animation: bounce-gentle 2.6s infinite ease-in-out;
+  transition: all 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 20;
+}
+
+.scroll-down-hint:hover {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: #d4af37;
+  transform: translateY(-2px);
+  box-shadow: 
+    0 16px 38px -4px rgba(60, 25, 65, 0.22),
+    0 6px 16px rgba(0, 0, 0, 0.08),
+    inset 0 0 20px rgba(240, 225, 205, 0.6);
+}
+
+.scroll-hint-inner {
+  width: 100%;
+  border: 1px dashed rgba(212, 175, 55, 0.45);
+  border-radius: 14px;
+  padding: 10px 14px 9px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+}
+
+.scroll-hint-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.scroll-hint-ornament {
+  color: #b8860b;
+  font-size: 0.72rem;
+  opacity: 0.85;
+}
+
+.scroll-hint-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  color: #8c5a14;
+  text-transform: uppercase;
+}
+
+.scroll-hint-events {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 600;
+  color: #2b172a;
+  margin: 1px 0;
+}
+
+.event-pill-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.event-pill-dot {
+  font-size: 0.62rem;
+}
+
+.mehndi-dot {
+  color: #c98c1a;
+}
+
+.barat-dot {
+  color: #a82035;
+}
+
+.walima-dot {
+  color: #6b3570;
+}
+
+.contact-dot {
+  color: #2e7d32;
+}
+
+.event-pill-sep {
+  color: rgba(212, 175, 55, 0.6);
+  font-size: 0.8rem;
+}
+
+.scroll-hint-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7a501a;
+  opacity: 0.88;
+}
+
+.scroll-hint-arrow {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #8c5a14;
+  animation: nudge-arrow 1.6s infinite ease-in-out;
+}
+
+@keyframes nudge-arrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
+
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0); opacity: 0.96; }
+  50% { transform: translateY(5px); opacity: 1; }
+}
+
+/* Sections Flow Container */
+/* ==========================================================================
+   AUTHENTIC VINTAGE EVENT STATIONERY CARDS WITH CORNER BLOSSOMS
+   Handcrafted Deckled Ivory Paper, Botanical Watercolor Corner Garlands,
+   Refined Classical Bullet Points & Gilded Calligraphy
+   ========================================================================== */
+.wedding-details-flow {
+  width: 100%;
+  max-width: 440px;
+  margin: 28px auto 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  z-index: 10;
+  position: relative;
+  padding: 0 16px;
+}
+
+.vintage-event-card-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vintage-blossom-card {
+  position: relative;
+  width: 100%;
+  background: #fdfbf7;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.96) 0%, rgba(252, 248, 242, 0.94) 100%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+  border-radius: 14px;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  box-shadow: 
+    0 18px 45px -8px rgba(50, 25, 55, 0.18),
+    0 6px 18px rgba(0, 0, 0, 0.05),
+    inset 0 0 25px rgba(230, 215, 200, 0.35);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.vintage-blossom-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 24px 55px -10px rgba(50, 25, 55, 0.24),
+    0 8px 24px rgba(0, 0, 0, 0.08);
+  border-color: rgba(212, 175, 55, 0.7);
+}
+
+/* Botanical Watercolor Corner Blossoms */
+.corner-blossom {
+  position: absolute;
+  width: 125px;
+  height: 125px;
+  background-image: url('vintage_corner_blossom.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: multiply;
+  opacity: 0.98;
+  filter: contrast(1.12) brightness(0.92);
+}
+
+.blossom-top-right {
+  top: 0;
+  right: 0;
+}
+
+.blossom-bottom-left {
+  bottom: 0;
+  left: 0;
+  transform: scale(-1);
+}
+
+.blossom-top-left {
+  top: 0;
+  left: 0;
+  transform: scaleX(-1);
+  width: 105px;
+  height: 105px;
+  opacity: 0.8;
+}
+
+.blossom-bottom-right {
+  bottom: 0;
+  right: 0;
+  transform: scaleY(-1);
+  width: 105px;
+  height: 105px;
+  opacity: 0.8;
+}
+
+/* Card Content Body - Sits directly on the real corner-blossom card */
+.vintage-card-body {
+  position: relative;
+  z-index: 4;
+  padding: 38px 28px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+/* Header & Chapter */
+.vcard-header {
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+.vcard-chapter {
+  font-family: 'Cinzel', serif;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  color: #8c5a14;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.vcard-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.mehndi-title {
+  color: #8c5a14;
+}
+
+.barat-title {
+  color: #831526;
+}
+
+.walima-title {
+  color: #552759;
+}
+
+.contact-title {
+  color: #5c2a5e;
+}
+
+.vcard-tagline {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 0.98rem;
+  color: #5c4458;
+  line-height: 1.35;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* Vintage Filigree Divider */
+.vcard-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 160px;
+  margin: 12px auto 18px;
+}
+
+.vdiv-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184, 134, 11, 0.65), transparent);
+}
+
+.vdiv-flower {
+  font-size: 0.85rem;
+  color: #b8860b;
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   VINTAGE BULLET POINTS LIST
+   ========================================================================== */
+.vcard-bullet-list {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin: 0;
+  text-align: left;
+}
+
+.vcard-bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 9px 4px;
+  background: none;
+  border: none;
+  border-bottom: 1px dashed rgba(212, 175, 55, 0.35);
+  box-shadow: none;
+  transition: all 0.22s ease;
+}
+
+.vcard-bullet-item:last-child {
+  border-bottom: none;
+}
+
+.vcard-bullet-item:hover {
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 6px;
+  transform: translateX(4px);
+}
+
+.vcard-bullet-icon {
+  color: #b8860b;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  flex-shrink: 0;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.vcard-bullet-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.vcard-bullet-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8c5a14;
+}
+
+.vcard-bullet-val {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #241521;
+  line-height: 1.35;
+}
+
+.vcard-highlight {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 600;
+  color: #121012;
+}
+
+/* ==========================================================================
+   CONTACT INFORMATION & ASSISTANCE CARD
+   ========================================================================== */
+.contact-cards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin: 10px 0 6px;
+}
+
+.contact-profile-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(212, 175, 55, 0.42);
+  border-radius: 12px;
+  padding: 12px 14px;
+  box-shadow: 0 4px 14px rgba(60, 25, 65, 0.05), inset 0 0 12px rgba(240, 230, 215, 0.35);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.contact-profile-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212, 175, 55, 0.75);
+  box-shadow: 0 8px 22px rgba(60, 25, 65, 0.12), inset 0 0 16px rgba(240, 230, 215, 0.5);
+}
+
+.contact-profile-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fdf8ee 0%, #ebd4b0 100%);
+  border: 1.5px solid rgba(184, 134, 11, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #7a4a12;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06), inset 0 1px 2px rgba(255, 255, 255, 0.85);
+  flex-shrink: 0;
+}
+
+.contact-profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  flex: 1;
+  min-width: 0;
+}
+
+.contact-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #241423;
+  margin: 0 0 2px 0;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+.contact-phone {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #694363;
+}
+
+.contact-phone .phone-icon {
+  font-size: 0.8rem;
+  color: #8c5a14;
+}
+
+.phone-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.phone-link:hover {
+  color: #8c5a14;
+  text-decoration: underline;
+}
+
+.contact-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.contact-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  white-space: nowrap;
+}
+
+.btn-call {
+  background: rgba(254, 252, 248, 0.95);
+  border: 1px solid rgba(184, 134, 11, 0.55);
+  color: #734510;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.btn-call:hover {
+  background: #734510;
+  color: #ffffff;
+  border-color: #734510;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(115, 69, 16, 0.22);
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  color: #ffffff;
+  border: 1px solid #1ebd5a;
+  box-shadow: 0 3px 8px rgba(37, 211, 102, 0.26);
+}
+
+.btn-whatsapp:hover {
+  background: #20ba59;
+  color: #ffffff;
+  border-color: #1aa04b;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 12px rgba(37, 211, 102, 0.4);
+}
+
+.contact-footer-note {
+  margin-top: 14px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8c5a14;
+  opacity: 0.88;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Modal Venue Assistance Strip */
+.modal-contact-strip {
+  margin-top: 14px;
+  padding: 10px 12px;
+  background: rgba(254, 252, 248, 0.88);
+  border: 1px dashed rgba(212, 175, 55, 0.5);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.modal-contact-strip-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #8c5a14;
+  text-transform: uppercase;
+}
+
+.modal-contact-strip-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.modal-contact-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  background: #ffffff;
+  border: 1px solid rgba(184, 134, 11, 0.35);
+  border-radius: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #5c2a5e;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.modal-contact-pill:hover {
+  background: #5c2a5e;
+  color: #ffffff;
+  border-color: #5c2a5e;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS (Screens <= 680px)
+   ========================================================================== */
+@media (max-width: 680px) {
+  .wedding-details-flow {
+    width: 86%;
+    max-width: min(340px, 86vw);
+    gap: 20px;
+    padding: 0 0 32px;
+    margin: 16px auto 0;
+  }
+
+  .vintage-blossom-card {
+    border-radius: 12px;
+  }
+
+  .vintage-card-body {
+    padding: 20px 15px 16px;
+  }
+
+  .corner-blossom {
+    width: 68px;
+    height: 68px;
+  }
+
+  .blossom-top-left, .blossom-bottom-right {
+    width: 56px;
+    height: 56px;
+  }
+
+  .vcard-chapter {
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    margin-bottom: 2px;
+  }
+
+  .vcard-title {
+    font-size: 1.25rem;
+    line-height: 1.15;
+    margin-bottom: 2px;
+  }
+
+  .vcard-tagline {
+    font-size: 0.82rem;
+    line-height: 1.25;
+    max-width: 90%;
+  }
+
+  .vcard-divider {
+    width: 96px;
+    margin: 6px auto 9px;
+    gap: 7px;
+  }
+
+  .vdiv-flower {
+    font-size: 0.72rem;
+  }
+
+  .vcard-bullet-list {
+    gap: 6px;
+    margin: 0;
+  }
+
+  .vcard-bullet-item {
+    padding: 5px 2px;
+    gap: 8px;
+  }
+
+  .vcard-bullet-icon {
+    font-size: 0.70rem;
+    line-height: 1.35;
+  }
+
+  .vcard-bullet-content {
+    gap: 1px;
+  }
+
+  .vcard-bullet-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+  }
+
+  .vcard-bullet-val {
+    font-size: 0.85rem;
+    line-height: 1.25;
+  }
+
+  .contact-profile-card {
+    padding: 10px 10px;
+    gap: 8px;
+  }
+
+  .contact-profile-avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 0.8rem;
+  }
+
+  .contact-name {
+    font-size: 0.95rem;
+  }
+
+  .contact-phone {
+    font-size: 0.78rem;
+  }
+
+  .contact-action-btn {
+    padding: 5px 8px;
+    font-size: 0.66rem;
+  }
+
+  .contact-footer-note {
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+  }
+}
+
+@media (max-width: 360px) {
+  .wedding-details-flow {
+    width: 90%;
+    max-width: 90vw;
+    gap: 16px;
+  }
+
+  .vintage-card-body {
+    padding: 16px 12px 14px;
+  }
+
+  .corner-blossom {
+    width: 58px;
+    height: 58px;
+  }
+
+  .blossom-top-left, .blossom-bottom-right {
+    width: 48px;
+    height: 48px;
+  }
+
+  .vcard-title {
+    font-size: 1.15rem;
+  }
+
+  .vcard-tagline {
+    font-size: 0.78rem;
+  }
+
+  .vcard-bullet-val {
+    font-size: 0.8rem;
+  }
+
+  .scroll-hint-inner {
+    padding: 8px 10px 7px;
+  }
+
+  .scroll-hint-title {
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+  }
+
+  .scroll-hint-events {
+    font-size: 0.82rem;
+    gap: 4px;
+  }
+
+  .scroll-hint-action {
+    font-size: 0.54rem;
+  }
+
+  .contact-profile-card {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .contact-profile-info {
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-btn-group {
+    width: 100%;
+    justify-content: center;
+    margin-top: 4px;
+  }
+}
+
+/* Print Stylesheet for High Quality Printing */
+@media print {
+  body {
+    background: none !important;
+  }
+  .top-nav, .bottom-action-dock, #petals-canvas, .texture-overlay, .modal-backdrop, .envelope-wrapper {
+    display: none !important;
+  }
+  .app-container {
+    padding: 0 !important;
+  }
+  .card-perspective-container {
+    max-width: 100% !important;
+  }
+  .wedding-card {
+    box-shadow: none !important;
+    width: 100vw !important;
+    height: 140vw !important;
+    max-height: 100vh !important;
+  }
+}

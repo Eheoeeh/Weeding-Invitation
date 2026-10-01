@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Wedding Invitation • Bilal Ahmed | Celebrations 29-31 October 2026</title>
+  
+  <!-- SEO & Social Sharing (WhatsApp, iMessage, Facebook Preview) -->
+  <meta name="description" content="Hosted by Mr. &amp; Mrs. Irshad Ahmed. You are cordially invited to the wedding celebrations of Bilal Ahmed at Paris Marriage Hall, Gujranwala (29-31 October 2026).">
+  <meta property="og:title" content="Wedding Celebrations of Bilal Ahmed">
+  <meta property="og:description" content="29–31 October 2026 • Paris Marriage Hall, Gujranwala • Hosted by Mr. &amp; Mrs. Irshad Ahmed">
+  <meta property="og:image" content="og_preview.jpg">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#baa5b7">
+  
+  <link rel="icon" type="image/png" href="favicon.png">
+  
+  <!-- Preconnect Google Fonts for fastest rendering -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Scheherazade+New:wght@600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css?v=contact_section_v55">
+  
+  <!-- GSAP 3 for ultra-smooth 60fps GPU-accelerated card & petal animations -->
+  <script src="gsap.min.js"></script>
+  <!-- html2canvas for high-res invitation image export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+  <!-- Floating Lilac Petals Canvas -->
+  <canvas id="petals-canvas"></canvas>
+  <div class="texture-overlay"></div>
+
+
+
+  <!-- ================= 1. THE BLOSSOM POPPING SECTION ================= -->
+  <!-- Pure botanical blossom popping interaction - Full viewport centered -->
+  <div class="blossom-stage" id="blossom-overlay">
+    <div class="blossom-core">
+      <!-- Radial watercolor lilac floral crest -->
+      <div class="blossom-bouquet-wrapper" id="blossom-bouquet">
+        <img src="lilac_blossom_transparent.png" alt="Lilac & Hydrangea Blossom" class="blossom-img">
+        <div class="blossom-glow-ring"></div>
+      </div>
+
+      <!-- Romantic Invitation Headline -->
+      <div class="blossom-caption">
+        <div class="blossom-subtitle">The Wedding Celebrations of</div>
+        <div class="blossom-couple" id="blossom-hero-name">Bilal Ahmed</div>
+      </div>
+
+      <!-- Prompt -->
+      <div class="blossom-prompt">
+        <span>🌸</span> Tap anywhere to open <span>🌸</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Presentation Stage -->
+  <main class="app-container">
+    <div class="presentation-stage">
+
+      <!-- ================= 2. THE WEDDING CARD SECTION ================= -->
+      <!-- Appears when the blossom pops! Showcases theme_watercolor_deckled.jpg -->
+      <div class="card-perspective-container card-hidden" id="card-container">
+        <div class="wedding-card" id="wedding-card">
+          <div class="card-sheen" id="card-sheen"></div>
+
+          <div class="card-content">
+            <!-- Optional guest greeting on card -->
+            <div class="card-guest-banner" id="card-guest-tag" style="display: none;">
+              For <span id="card-guest-name">Our Beloved Family</span>
+            </div>
+
+            <!-- Bismillah & Host Header -->
+            <div class="card-bismillah-block">
+              <div class="bismillah-arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+              <div class="card-host-line" id="txt-host">Hosted by Mr. &amp; Mrs. Irshad Ahmed</div>
+            </div>
+
+            <!-- Invitation Callout -->
+            <div class="invitation-intro" id="txt-intro">
+              <span class="intro-line-1">YOU ARE INVITED TO</span>
+              <span class="intro-line-2">THE WEDDING CELEBRATIONS OF</span>
+            </div>
+
+            <!-- Hero Groom Name in Royal Script -->
+            <div class="groom-name-block">
+              <div class="groom-script-name" id="txt-groom-name">Bilal Ahmed</div>
+            </div>
+
+            <!-- Card Letter / Best Poetic & Blessing Lines -->
+            <div class="card-letter-quote" id="txt-letter">
+              “With hearts full of joy and gratitude to Almighty Allah, we cordially invite you and your family to grace these auspicious celebrations with your gracious presence, warm prayers, and love.”
+            </div>
+
+            <!-- 3 Auspicious Ceremonies Program -->
+            <div class="ceremonies-program-block">
+              <!-- 1. Mehndi -->
+              <div class="program-event-row">
+                <span class="prog-dot mehndi-dot">✦</span>
+                <div class="prog-details">
+                  <span class="prog-date" id="txt-mehndi-date">THURSDAY, 29TH OCTOBER 2026</span>
+                  <span class="prog-event" id="txt-mehndi-time">Mehndi Ceremony • at 7:00 PM</span>
+                </div>
+              </div>
+
+              <!-- 2. Barat -->
+              <div class="program-event-row">
+                <span class="prog-dot barat-dot">✦</span>
+                <div class="prog-details">
+                  <span class="prog-date" id="txt-barat-date">FRIDAY, 30TH OCTOBER 2026</span>
+                  <span class="prog-event" id="txt-barat-time">Barat Ceremony • at 5:00 PM</span>
+                </div>
+              </div>
+
+              <!-- 3. Walima -->
+              <div class="program-event-row">
+                <span class="prog-dot walima-dot">✦</span>
+                <div class="prog-details">
+                  <span class="prog-date" id="txt-walima-date">SATURDAY, 31ST OCTOBER 2026</span>
+                  <span class="prog-event" id="txt-walima-time">Walima Ceremony • at 6:00 PM</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Venue & Hospitality Footer -->
+            <div class="card-venue-footer">
+              <div class="venue-title-row">
+                <span class="venue-label">VENUE:</span>
+                <span class="venue-main-name" id="txt-venue-name">PARIS MARRIAGE HALL</span>
+              </div>
+              <div class="venue-sub-addr" id="txt-venue-addr">Opposite Second Cup, G.T. Road, Eminabad Morr, Gujranwala</div>
+              <div class="banquet-dinner-note" id="txt-banquet">✦ Dinner will follow ✦</div>
+            </div>
+          </div>
+
+          <!-- ================= EXPERIENCE 1: SILK RIBBON & GOLD SEAL ================= -->
+          <div class="ribbon-overlay hidden" id="ribbon-overlay">
+            <!-- Ribbon Bands across card -->
+            <div class="ribbon-band ribbon-band-left"></div>
+            <div class="ribbon-band ribbon-band-right"></div>
+            
+            <!-- Hanging Ribbon Tails -->
+            <div class="ribbon-tails-container">
+              <div class="ribbon-tail tail-left"></div>
+              <div class="ribbon-tail tail-right"></div>
+            </div>
+
+            <!-- Center Embossed Gold Wax Seal -->
+            <div class="ribbon-wax-seal" id="ribbon-seal" title="Tap to untie ribbon & open invitation">
+              <div class="seal-inner">
+                <span class="seal-monogram" id="seal-initials">BA</span>
+                <span class="seal-label">UNTIE</span>
+              </div>
+            </div>
+
+            <!-- Tap Prompt -->
+            <div class="ribbon-prompt">
+              <span>✨</span> Tap Seal to Untie Ribbon <span>✨</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Royal Ornate Celebration Events Scroll Badge -->
+    <div class="scroll-down-hint" id="scroll-hint" style="display: none;" role="button" aria-label="Explore Celebration Events: Mehndi, Barat, Walima">
+      <div class="scroll-hint-inner">
+        <div class="scroll-hint-header">
+          <span class="scroll-hint-ornament">❦</span>
+          <span class="scroll-hint-title">Celebration Events</span>
+          <span class="scroll-hint-ornament">❦</span>
+        </div>
+        <div class="scroll-hint-events">
+          <span class="event-pill-item"><span class="event-pill-dot mehndi-dot">✦</span> Mehndi</span>
+          <span class="event-pill-sep">•</span>
+          <span class="event-pill-item"><span class="event-pill-dot barat-dot">✦</span> Barat</span>
+          <span class="event-pill-sep">•</span>
+          <span class="event-pill-item"><span class="event-pill-dot walima-dot">✦</span> Walima</span>
+          <span class="event-pill-sep">•</span>
+          <span class="event-pill-item"><span class="event-pill-dot contact-dot">✦</span> Contact</span>
+        </div>
+        <div class="scroll-hint-action">
+          <span>Explore Timeline &amp; Ceremonies</span>
+          <span class="scroll-hint-arrow">↓</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= 3. EXTENDED WEDDING INVITATION SECTIONS ================= -->
+    <div class="wedding-details-flow" id="wedding-details-flow" style="display: none;">
+
+      <!-- ================= 1. VINTAGE MEHNDI CARD ================= -->
+      <div class="vintage-event-card-container" id="card-event-mehndi">
+        <div class="vintage-blossom-card mehndi-theme-card">
+          <!-- Botanical Watercolor Corner Blossoms -->
+          <div class="corner-blossom blossom-top-right"></div>
+          <div class="corner-blossom blossom-bottom-left"></div>
+          <div class="corner-blossom blossom-top-left"></div>
+          <div class="corner-blossom blossom-bottom-right"></div>
+
+          <!-- Inner Fine-Art Gold Foil Border -->
+          <div class="vintage-card-body">
+            <div class="vcard-header">
+              <div class="vcard-chapter">❦ EVENT I • RASM-E-MEHNDI ❦</div>
+              <h3 class="vcard-title mehndi-title">Mehndi Celebration</h3>
+              <p class="vcard-tagline">An auspicious evening of vibrant music, delicate henna art &amp; festive blessings</p>
+            </div>
+
+            <div class="vcard-divider">
+              <span class="vdiv-line"></span>
+              <span class="vdiv-flower">🌸</span>
+              <span class="vdiv-line"></span>
+            </div>
+
+            <!-- Bullet Points -->
+            <ul class="vcard-bullet-list">
+              <li class="vcard-bullet-item">
+                <span class="vcard-bullet-icon">✦</span>
+                <div class="vcard-bullet-content">
+                  <span class="vcard-bullet-label">Date:</span>
+                  <span class="vcard-bullet-val vcard-highlight">Thursday, 29 October 2026</span>
+                </div>
+              </li>
+              <li class="vcard-bullet-item">
+                <span class="vcard-bullet-icon">✦</span>
+                <div class="vcard-bullet-content">
+                  <span class="vcard-bullet-label">Time:</span>
+                  <span class="vcard-bullet-val">Celebration Begins at 7:00 PM</span>
+                </div>
+              </li>
+              <li class="vcard-bullet-item">
+                <span class="vcard-bullet-icon">✦</span>
+                <div class="vcard-bullet-content">
+                  <span class="vcard-bullet-label">Venue &amp; Location:</span>
+                  <span class="vcard-bullet-val">Paris Marriage Hall, Opposite Second Cup, G.T. Road, Eminabad Morr, Gujranwala</span>
+                </div>
+              </li>
+              <li class="vcard-bullet-item">
+                <span class="vcard-bullet-icon">✦</span>
+                <div class="vcard-bullet-content">
+                  <span class="vcard-bullet-label">Hosted By:</span>
+                  <span class="vcard-bullet-val">Mr. &amp; Mrs. Irshad Ahmed</span>
+                </div>
+              </li>
+              <li class="vcard-bullet-item">
+                <span class="vcard-bullet-icon">✦</span>
+                <div class="vcard-bullet-content">
+                  <span class="vcard-bullet-label">Ceremonies &amp; Highlights:</span>
+                  <span class="vcard-bullet-val">Traditional Henna • Dholak &amp; Sangeet Beats • Dinner will follow</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= 2. VINTAGE BARAT CARD ================= -->
+      <div class="vintage-event-card-container" id="card-event-barat">
+        <div class="vintage-blossom-card barat-theme-card">
+          <!-- Botanical Watercolor Corner Blossoms -->
+          <div class="corner-blossom blossom-top-right"></div>
+          <div class="corner-blossom blossom-bottom-left"></div>
+          <div class="corner-blossom blossom-top-left"></div>
+          <div class="corner-blossom blossom-bottom-right"></div>
+
+          <!-- Inner Fine-Art Gold Foil Border -->
+          <div class="vintage-card-body">
+            <div class="vcard-header">
+              <div class="vcard-chapter">❦ EVENT II • BARAT &amp; NIKAH ❦</div>
+              <h3 class="vcard-title barat-title">Barat (The Wedding)</h3>
+              <p class="vcard-tagline">The grand wedding procession, sacred marriage vows &amp; royal dinner feast</p>
+            </div>
+
+            <div class="vcard-divider">
+              <span class="vdiv-line"></span>
+              <span class="vdiv-flower">🌸</span>
+              <span class="vdiv-line"></span>
+            </div>
+
+            <!-- Bullet Points -->
+            <ul class="vcard-bullet-list">
+              <li class="vcard-bullet-item">
+                <span class="vcard-bullet-icon">✦</span>
+                <div class="vcard-bullet-content">
+                  <span class="vcard-bullet-label">Date:</span>
+                  <span class="vcard-bullet-val vcard-highlight">Friday, 30 October 2026</span>
+                </div>
+              </li>
+              <li class="vcard-bullet-item">
+                <span class="vcard-bullet-icon">✦</span>
+                <div class="vcard-bullet-content">
+                  <span class="vcard-bullet-label">Time:</span>
+                  <span class="vcard-bullet-val">Arrival &amp; Ceremony at 5:00 PM</span>
+                </div>
+              </li>
+              <li class="vcard-bullet-item">
+                <span class="vcard-bullet-icon">✦</span>
+                <div class="vcard-bullet-content">
+                  <span class="vcard-bullet-label">Venue &amp; Location:</span>
+                  <span class="vcard-bullet-val">Paris Marriage Hall, Opposite Second Cup, G.T. Road, Eminabad Morr, Gujranwala</span>
+                </div>
+              </li>
+              <li class="vcard-bullet-item">
+                <span class="vcard-bullet-icon">✦</span>
+                <div class="vcard-bullet-content">
+                  <span class="vcard-bullet-label">Hosted By:</span>
+                  <span class="vcard-bullet-val">Mr. &amp; Mrs. Irshad Ahmed</span>
+                </div>
+              </li>
+              <li class="vcard-bullet-item">
+                <span class="vcard-bullet-icon">✦</span>
+                <div class="vcard-bullet-content">
+                  <span class="vcard-bullet-label">Ceremonies &amp; Highlights:</span>
+                  <span class="vcard-bullet-val">Welcoming of the Barat • Marriage Vows &amp; Blessings • Royal Dinner • Dinner will follow</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= 3. VINTAGE WALIMA CARD ================= -->
+      <div class="vintage-event-card-container" id="card-event-walima">
+        <div class="vintage-blossom-card walima-theme-card">
+          <!-- Botanical Watercolor Corner Blossoms -->
+          <div class="corner-blossom blossom-top-right"></div>
+          <div class="corner-blossom blossom-bottom-left"></div>
+          <div class="corner-blossom blossom-top-left"></div>
+          <div class="corner-blossom blossom-bottom-right"></div>
+
+          <!-- Inner Fine-Art Gold Foil Border -->
+          <div class="vintage-card-body">
+            <div class="vcard-header">
+              <div class="vcard-chapter">❦ EVENT III • DAWAT-E-WALIMA ❦</div>
+              <h3 class="vcard-title walima-title">Walima Reception</h3>
+              <p class="vcard-tagline">A celebratory banquet hosted with gratitude to celebrate the wedding of Bilal Ahmed</p>
+            </div>
+
+            <div class="vcard-divider">
+              <span class="vdiv-line"></span>
+              <span class="vdiv-flower">🌸</span>
+              <span class="vdiv-line"></span>
+            </div>
+
+            <!-- Bullet Points -->
+            <ul class="vcard-bullet-list">
+              <li class="vcard-bullet-item">
+                <span class="vcard-bullet-icon">✦</span>
+                <div class="vcard-bullet-content">
+                  <span class="vcard-bullet-label">Date:</span>
+                  <span class="vcard-bullet-val vcard-highlight">Saturday, 31 October 2026</span>
+                </div>
+              </li>
+              <li class="vcard-bullet-item">
+                <span class="vcard-bullet-icon">✦</span>
+                <div class="vcard-bullet-content">
+                  <span class="vcard-bullet-label">Time:</span>
+                  <span class="vcard-bullet-val">Reception Doors Open at 6:00 PM</span>
+                </div>
+              </li>
+              <li class="vcard-bullet-item">
+                <span class="vcard-bullet-icon">✦</span>
+                <div class="vcard-bullet-content">
+                  <span class="vcard-bullet-label">Venue &amp; Location:</span>
+                  <span class="vcard-bullet-val">Paris Marriage Hall, Opposite Second Cup, G.T. Road, Eminabad Morr, Gujranwala</span>
+                </div>
+              </li>
+              <li class="vcard-bullet-item">
+                <span class="vcard-bullet-icon">✦</span>
+                <div class="vcard-bullet-content">
+                  <span class="vcard-bullet-label">Hosted By:</span>
+                  <span class="vcard-bullet-val">Mr. &amp; Mrs. Irshad Ahmed</span>
+                </div>
+              </li>
+              <li class="vcard-bullet-item">
+                <span class="vcard-bullet-icon">✦</span>
+                <div class="vcard-bullet-content">
+                  <span class="vcard-bullet-label">Ceremonies &amp; Highlights:</span>
+                  <span class="vcard-bullet-val">Reception Greeting • Grand Entrance of Bilal Ahmed • Royal Banquet Feast • Dinner will follow</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= 4. CONTACT & ASSISTANCE CARD ================= -->
+      <div class="vintage-event-card-container" id="card-event-contact">
+        <div class="vintage-blossom-card contact-theme-card">
+          <!-- Botanical Watercolor Corner Blossoms -->
+          <div class="corner-blossom blossom-top-right"></div>
+          <div class="corner-blossom blossom-bottom-left"></div>
+          <div class="corner-blossom blossom-top-left"></div>
+          <div class="corner-blossom blossom-bottom-right"></div>
+
+          <!-- Inner Fine-Art Gold Foil Border & Content -->
+          <div class="vintage-card-body">
+            <div class="vcard-header">
+              <div class="vcard-chapter">❦ RSVP &amp; ASSISTANCE ❦</div>
+              <h3 class="vcard-title contact-title">Contact Information</h3>
+              <p class="vcard-tagline">For wedding inquiries, venue directions, or warm wishes, please feel free to reach out:</p>
+            </div>
+
+            <!-- Vintage Filigree Divider -->
+            <div class="vcard-divider">
+              <span class="vdiv-line"></span>
+              <span class="vdiv-flower">🌸</span>
+              <span class="vdiv-line"></span>
+            </div>
+
+            <!-- Two Contact Profile Cards -->
+            <div class="contact-cards-grid">
+              <!-- Contact 1: Faraz Ahmed -->
+              <div class="contact-profile-card">
+                <div class="contact-profile-avatar">FA</div>
+                <div class="contact-profile-info">
+                  <h4 class="contact-name">Faraz Ahmed</h4>
+                  <div class="contact-phone">
+                    <span class="phone-icon">📞</span>
+                    <a href="tel:03246134732" class="phone-link">0324 6134732</a>
+                  </div>
+                </div>
+                <div class="contact-btn-group">
+                  <a href="tel:03246134732" class="contact-action-btn btn-call" aria-label="Call Faraz Ahmed">
+                    <span class="btn-icon">📞</span> Call
+                  </a>
+                  <a href="https://wa.me/923246134732" target="_blank" rel="noopener noreferrer" class="contact-action-btn btn-whatsapp" aria-label="WhatsApp Faraz Ahmed">
+                    <span class="btn-icon">💬</span> WhatsApp
+                  </a>
+                </div>
+              </div>
+
+              <!-- Contact 2: Kashif -->
+              <div class="contact-profile-card">
+                <div class="contact-profile-avatar">K</div>
+                <div class="contact-profile-info">
+                  <h4 class="contact-name">Kashif</h4>
+                  <div class="contact-phone">
+                    <span class="phone-icon">📞</span>
+                    <a href="tel:03056189483" class="phone-link">0305 6189483</a>
+                  </div>
+                </div>
+                <div class="contact-btn-group">
+                  <a href="tel:03056189483" class="contact-action-btn btn-call" aria-label="Call Kashif">
+                    <span class="btn-icon">📞</span> Call
+                  </a>
+                  <a href="https://wa.me/923056189483" target="_blank" rel="noopener noreferrer" class="contact-action-btn btn-whatsapp" aria-label="WhatsApp Kashif">
+                    <span class="btn-icon">💬</span> WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Warm host closing note -->
+            <div class="contact-footer-note">
+              <span>✦</span> Hosted with love &amp; respect by Mr. &amp; Mrs. Irshad Ahmed <span>✦</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- end wedding-details-flow -->
+  </main>
+
+
+  <!-- ================= MODALS ================= -->
+
+  <!-- 1. RSVP MODAL -->
+  <div class="modal-backdrop" id="modal-rsvp">
+    <div class="modal-window">
+      <button class="modal-close-btn" data-close="modal-rsvp">&times;</button>
+      <div class="modal-header">
+        <h2 class="modal-title">RSVP</h2>
+        <p class="modal-subtitle">Kindly respond by October 15th to celebrate with us</p>
+      </div>
+
+      <form id="rsvp-form">
+        <div class="form-group">
+          <label class="form-label" for="rsvp-name">Your Full Name(s)</label>
+          <input type="text" class="form-input" id="rsvp-name" required placeholder="e.g., Uncle Tariq &amp; Family">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Will you be attending?</label>
+          <div class="radio-pill-group">
+            <input type="radio" id="attending-yes" name="attendance" value="Joyfully Accepts" checked>
+            <label for="attending-yes"> Joyfully Accepts</label>
+
+            <input type="radio" id="attending-no" name="attendance" value="Regretfully Declines">
+            <label for="attending-no"> Regretfully Declines</label>
+          </div>
+        </div>
+
+        <div class="form-group" id="guests-count-group">
+          <label class="form-label" for="rsvp-guests">Number of Guests Attending</label>
+          <select class="form-select" id="rsvp-guests">
+            <option value="1">1 Guest</option>
+            <option value="2" selected>2 Guests</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4 Guests</option>
+            <option value="5+">5+ (Family)</option>
+          </select>
+        </div>
+
+        <div class="form-group" id="dietary-group">
+          <label class="form-label" for="rsvp-dietary">Dietary Requirements (Optional)</label>
+          <input type="text" class="form-input" id="rsvp-dietary" placeholder="e.g. Halal, Vegetarian, Nut Allergies, None">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="rsvp-message">Warm Wishes &amp; Du'as for Bilal Ahmed</label>
+          <textarea class="form-textarea" id="rsvp-message" rows="3" placeholder="Leave warm prayers &amp; blessings for Bilal Ahmed &amp; family..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary">Confirm RSVP</button>
+      </form>
+
+      <div style="margin-top: 14px; text-align: center;">
+        <button class="btn-secondary" id="view-rsvps-btn" type="button" style="font-size: 0.78rem;">
+          📋 View All Submitted RSVPs (Admin)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. CALENDAR MODAL -->
+  <div class="modal-backdrop" id="modal-calendar">
+    <div class="modal-window">
+      <button class="modal-close-btn" data-close="modal-calendar">&times;</button>
+      <div class="modal-header">
+        <h2 class="modal-title">Save The Date</h2>
+        <p class="modal-subtitle">29th – 31st October 2026</p>
+      </div>
+
+      <div style="text-align: center; margin: 20px 0;">
+        <p style="font-size: 1.05rem; line-height: 1.6; color: #4b3648; margin-bottom: 20px;">
+          Add the Wedding Celebrations of Bilal Ahmed (Mehndi, Barat, Walima) to your digital calendar so you don't miss a moment.
+        </p>
+
+        <a id="btn-google-cal" class="btn-primary" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; margin-bottom: 12px;">
+          <span>📅</span> Add to Google Calendar
+        </a>
+
+        <button class="btn-secondary" id="btn-download-ics">
+          <span>🍏</span> Download Apple / Outlook (.ics) Event
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. VENUE & MAP MODAL -->
+  <div class="modal-backdrop" id="modal-venue">
+    <div class="modal-window">
+      <button class="modal-close-btn" data-close="modal-venue">&times;</button>
+      <div class="modal-header">
+        <h2 class="modal-title">Venue &amp; Location</h2>
+        <p class="modal-subtitle">Paris Marriage Hall, Gujranwala</p>
+      </div>
+
+      <div class="venue-card-preview">
+        <div class="venue-name" id="modal-venue-name">Paris Marriage Hall</div>
+        <div class="venue-addr" id="modal-venue-addr">
+          Opposite Second Cup, G.T. Road,<br>
+          Eminabad Morr, Gujranwala, Punjab
+        </div>
+        <div class="venue-actions">
+          <a id="btn-maps-google" href="https://www.google.com/maps/search/?api=1&query=Paris+Marriage+Hall+Eminabad+Morr+GT+Road+Gujranwala" target="_blank" rel="noopener noreferrer">
+            🗺️ Google Maps
+          </a>
+          <a id="btn-maps-apple" href="https://maps.apple.com/?q=Paris+Marriage+Hall+Gujranwala" target="_blank" rel="noopener noreferrer">
+            🍎 Apple Maps
+          </a>
+          <button id="btn-copy-address">
+            📋 Copy Address
+          </button>
+        </div>
+
+        <!-- Venue Directions & Route Assistance Strip -->
+        <div class="modal-contact-strip">
+          <div class="modal-contact-strip-label">For Route &amp; Venue Directions:</div>
+          <div class="modal-contact-strip-links">
+            <a href="tel:03246134732" class="modal-contact-pill">📞 Faraz Ahmed: 0324 6134732</a>
+            <a href="tel:03056189483" class="modal-contact-pill">📞 Kashif: 0305 6189483</a>
+          </div>
+        </div>
+      </div>
+
+      <p style="font-size: 0.95rem; font-style: italic; color: #6b5768; text-align: center;">
+        Valet parking is available at the main entrance. Located right opposite Second Cup on G.T. Road, Eminabad Morr.
+      </p>
+    </div>
+  </div>
+
+  <!-- 4. COUNTDOWN MODAL -->
+  <div class="modal-backdrop" id="modal-countdown">
+    <div class="modal-window">
+      <button class="modal-close-btn" data-close="modal-countdown">&times;</button>
+      <div class="modal-header">
+        <h2 class="modal-title">Wedding Countdown</h2>
+        <p class="modal-subtitle">Counting down to Mehndi Ceremony &amp; Celebrations</p>
+      </div>
+
+      <div class="countdown-strip">
+        <div class="countdown-item">
+          <span class="countdown-num" id="cd-days">00</span>
+          <span class="countdown-lbl">Days</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-num" id="cd-hours">00</span>
+          <span class="countdown-lbl">Hours</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-num" id="cd-mins">00</span>
+          <span class="countdown-lbl">Mins</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-num" id="cd-secs">00</span>
+          <span class="countdown-lbl">Secs</span>
+        </div>
+      </div>
+
+      <p style="text-align: center; font-style: italic; color: #5c4759; margin-top: 15px;">
+        Thursday, 29th October 2026 • Paris Marriage Hall, Gujranwala
+      </p>
+    </div>
+  </div>
+
+  <!-- 5. SHARE & PERSONALIZE MODAL -->
+  <div class="modal-backdrop" id="modal-share">
+    <div class="modal-window">
+      <button class="modal-close-btn" data-close="modal-share">&times;</button>
+      <div class="modal-header">
+        <h2 class="modal-title">Share Invitation</h2>
+        <p class="modal-subtitle">Share this digital card with your relatives & friends</p>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="personalize-guest-input">Personalize for a Specific Relative / Guest (Optional)</label>
+        <input type="text" class="form-input" id="personalize-guest-input" placeholder="e.g. Uncle David, The Smith Family, Aunt Linda">
+        <small style="color: #7b6878; font-size: 0.78rem; display: block; margin-top: 4px;">
+          Their name will appear on the envelope and greeting when they open the link!
+        </small>
+      </div>
+
+      <button class="btn-primary" id="btn-share-whatsapp" style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); margin-bottom: 10px;">
+        💬 Share via WhatsApp
+      </button>
+
+      <button class="btn-secondary" id="btn-copy-share-link">
+        🔗 Copy Invitation Link
+      </button>
+
+      <div id="share-copied-notice" style="display: none; color: #2e7d32; font-weight: 500; font-size: 0.85rem; text-align: center; margin-top: 8px;">
+        ✓ Link copied to clipboard! Ready to paste into family chat.
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. CUSTOMIZE / EDIT MODAL -->
+  <div class="modal-backdrop" id="modal-edit">
+    <div class="modal-window">
+      <button class="modal-close-btn" data-close="modal-edit">&times;</button>
+      <div class="modal-header">
+        <h2 class="modal-title">Personalize Card Details</h2>
+        <p class="modal-subtitle">Edit names, wedding date, venue, or wording</p>
+      </div>
+
+      <form id="edit-form">
+        <div class="form-group">
+          <label class="form-label" for="edit-groom-name">Groom's Name (Script Calligraphy)</label>
+          <input type="text" class="form-input" id="edit-groom-name" value="Bilal Ahmed">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="edit-host">Host Line</label>
+          <input type="text" class="form-input" id="edit-host" value="Hosted by Mr. &amp; Mrs. Irshad Ahmed">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="edit-letter">Invitation Letter / Best Lines</label>
+          <textarea class="form-textarea" id="edit-letter" rows="3">“With hearts full of joy and gratitude to Almighty Allah, we cordially invite you and your family to grace these auspicious celebrations with your gracious presence, warm prayers, and love.”</textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="edit-venue-name">Venue Name</label>
+          <input type="text" class="form-input" id="edit-venue-name" value="PARIS MARRIAGE HALL">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="edit-venue-addr">Venue Address</label>
+          <input type="text" class="form-input" id="edit-venue-addr" value="Opposite Second Cup, G.T. Road, Eminabad Morr, Gujranwala">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="edit-banquet">Dinner / Banquet Line</label>
+          <input type="text" class="form-input" id="edit-banquet" value="✦ Dinner will follow ✦">
+        </div>
+
+        <div style="display: flex; gap: 10px; margin-top: 14px;">
+          <button type="submit" class="btn-primary" style="flex: 2;">Save &amp; Apply Changes</button>
+          <button type="button" class="btn-secondary" id="btn-reset-defaults" style="flex: 1;">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 7. GUEST LIST / RSVP ADMIN MODAL -->
+  <div class="modal-backdrop" id="modal-rsvplist">
+    <div class="modal-window">
+      <button class="modal-close-btn" data-close="modal-rsvplist">&times;</button>
+      <div class="modal-header">
+        <h2 class="modal-title">RSVP Guest Responses</h2>
+        <p class="modal-subtitle" id="rsvp-summary-text">0 responses recorded</p>
+      </div>
+
+      <div id="rsvp-list-container" style="max-height: 280px; overflow-y: auto; margin-bottom: 16px;">
+        <!-- Populated via script -->
+      </div>
+
+      <div style="display: flex; gap: 10px;">
+        <button class="btn-secondary" id="btn-export-rsvps" style="flex: 1;">
+          📥 Export CSV
+        </button>
+        <button class="btn-secondary" id="btn-clear-rsvps" style="flex: 1; color: #b71c1c;">
+          🗑️ Clear All
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js?v=bilal_ahmed_wedding_v54"></script>
+</body>
+</html>
